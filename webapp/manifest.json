@@ -1,0 +1,144 @@
+{
+	"_version": "1.5.0",
+	"sap.app": {
+		"id": "fypICD",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"Details.xsodata": {
+				"uri": "/inputcontrol/api/Details.xsodata/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/Details.xsodata/metadata.xml",
+					"annotations": ["annotation1"]
+				}
+			},
+			"annotation1": {
+				"type": "ODataAnnotation",
+				"uri": "annotation1.xml",
+				"settings": {
+					"localUri": "annotation1.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_hcb", "sap_belize"]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "fypICD.view.MainView",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.collaboration": {},
+				"sap.m": {},
+				"sap.ui.comp": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "fypICD.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "Details.xsodata",
+				"preload": true
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewPath": "fypICD.view",
+				"controlId": "myApp",
+				"controlAggregation": "pages",
+				"viewLevel": 1,
+				"transition": "flip"
+			},
+			"routes": [{
+				"name": "Route_view1",
+				"pattern": "",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["view1"]
+			}, {
+				"name": "Route_view2",
+				"pattern": "details",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["view2"]
+			}],
+			"targets": {
+				"view1": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "MainView",
+					"viewLevel": 1
+				},
+				"view2": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "view2",
+					"viewLevel": 1
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zdemoui/webapp",
+		"_version": "1.1.0"
+	}
+}

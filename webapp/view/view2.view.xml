@@ -1,0 +1,57 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns="sap.m" controllerName="fypICD.controller.view2" displayBlock="true">
+	<Page title="IFP Result Control Dashboard">
+		<content>
+			<smartForm:SmartForm id="smartForm" editTogglable="true" title="Smart Form" flexEnabled="true">
+				<smartForm:Group label="Transaction">
+					<!--<smartForm:GroupElement>-->
+					<!--	<smartField:SmartField value="{ID}" id="trasaction_nav_id" editable="false"/>-->
+					<!--</smartForm:GroupElement>-->
+					<!--<smartForm:GroupElement>-->
+					<!--	<smartField:SmartField value="{TRANSACTION_ID}" id="transaction_id" editable="false"/>-->
+					<!--</smartForm:GroupElement>-->
+					<!--<smartForm:GroupElement>-->
+					<!--	<smartField:SmartField value="{ACCT_DATE}" id="acct_date"/>-->
+					<!--</smartForm:GroupElement>-->
+					<!--<smartForm:GroupElement>-->
+					<!--	<smartField:SmartField value="{BATCH_NUM}" id="batch_num"/>-->
+					<!--</smartForm:GroupElement>-->
+					<!--<smartForm:GroupElement>-->
+					<!--	<smartField:SmartField value="{DATA_SOURCE}" id="data_source"/>-->
+					<!--</smartForm:GroupElement>-->
+					<!--<smartForm:GroupElement>-->
+					<!--	<smartField:SmartField value="{DOMAIN}" id="domain"/>-->
+					<!--</smartForm:GroupElement>-->
+					<!--<smartForm:GroupElement>-->
+					<!--	<smartField:SmartField value="{INPUT_ID}" id="input_id"/>-->
+					<!--</smartForm:GroupElement>-->
+					<!--<smartForm:GroupElement>-->
+					<!--	<smartField:SmartField value="{PROC_TIME}" id="proc_time"/>-->
+					<!--</smartForm:GroupElement>-->
+					<!--<smartForm:GroupElement>-->
+					<!--	<smartField:SmartField value="{STATUS}" id="status"/>-->
+					<!--</smartForm:GroupElement>-->
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{CORRECTED_BATCH}" id="corrected_batch"/>
+					</smartForm:GroupElement>
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{FLOW}" id="flow"/>
+					</smartForm:GroupElement>
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{SEQUENCE_NUMBER}" id="sequence_number"/>
+					</smartForm:GroupElement>
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{NET_AMOUNT}" id="net_amount"/>
+					</smartForm:GroupElement>
+				</smartForm:Group>
+			</smartForm:SmartForm>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Save" press="save"/>
+				<Button type="Reject" text="Reject" press="onNavBack"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

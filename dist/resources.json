@@ -1,0 +1,69 @@
+{
+    "resources": [
+        {
+            "name": "images/red.png"
+        },
+        {
+            "name": "images/green.png"
+        },
+        {
+            "name": "images/yellow.png"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "localService/Details.xsodata/metadata.xml"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "util/Formatter.js"
+        },
+        {
+            "name": "controller/view2.controller.js"
+        },
+        {
+            "name": "controller/MainView.controller.js"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "annotation1.xml"
+        },
+        {
+            "name": "model/DataSource.json"
+        },
+        {
+            "name": "model/Currency.json"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "view/MainView.view.xml"
+        },
+        {
+            "name": "view/view2.view.xml"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "neo-app.json"
+        }
+    ]
+}

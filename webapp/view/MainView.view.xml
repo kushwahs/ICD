@@ -1,0 +1,170 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="fypICD.controller.MainView" displayBlock="true">
+	<App id="myApp">
+		<pages>
+			<Page title="{@i18n>title}">
+				<content>
+					<smartFilterBar:SmartFilterBar id="smartFilterBar" entityType="inputControlType" persistencyKey="SmartFilter_Explored" hSpacing="0">
+						<smartFilterBar:customData>
+							<core:CustomData key="dateFormatSettings" value="\{&quot;UTC&quot;: true}"/>
+						</smartFilterBar:customData>
+						<smartFilterBar:controlConfiguration>
+							<smartFilterBar:ControlConfiguration key="ACCT_DATE" label="{@i18n>fileCreationDate}" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false" controlType="date" filterType="interval" visible="true" index="1">
+								<smartFilterBar:defaultFilterValues>
+									<!--<smartFilterBar:SelectOption low="{path: 'ACCT_DATE', formatter: 'util.Formatter.setPreviousDate'}" high="{path: 'ACCT_DATE', formatter: 'util.Formatter.setCurrentDate'}"/>-->
+												</smartFilterBar:defaultFilterValues>
+						
+							</smartFilterBar:ControlConfiguration>
+							<!--<smartFilterBar:ControlConfiguration key="DATA_SOURCE" label="{@i18n>dataSource}" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="true" controlType="input" filterType="single" visible="true" index="2"/>-->
+							<smartFilterBar:ControlConfiguration key="BATCH_NUM" label="{@i18n>batchNumber}" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false" controlType="input" filterType="single" visible="true" index="3"/>
+							<smartFilterBar:ControlConfiguration key="PROC_TIME" label="{@i18n>processingTime}" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false" controlType="date" filterType="single" visible="true" index="4"/>
+							<smartFilterBar:ControlConfiguration key="DOMAIN" label="{@i18n>accountingPeriod}" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false" controlType="date" filterType="single" visible="true" index="5"/>
+							<smartFilterBar:ControlConfiguration key="STATUS" label="{@i18n>errorOnly}" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false" controlType="input" filterType="single" visible="true" index="6">
+								<smartFilterBar:customControl>
+									<ComboBox id="foo" customData:hasValue="true" selectedKey="ALL">
+										<core:Item key="P" text="Processing"/>
+										<core:Item key="E" text="Error"/>
+										<core:Item key="C" text="Completed"/>
+										<core:Item key="ALL" text="ALL"/>
+									</ComboBox>
+										<CheckBox id="oCheckBox" text=""/>
+								</smartFilterBar:customControl>
+							</smartFilterBar:ControlConfiguration>
+							<smartFilterBar:ControlConfiguration key="DATA_SOURCE" label="Data Source" visibleInAdvancedArea="true"
+								preventInitialDataFetchInValueHelpDialog="true" controlType="input" filterType="multiple" visible="true" index="2">
+								<smartFilterBar:customControl>
+													<MultiInput id="multiInput" showValueHelp="true" valueHelpRequest="handleF4CompanyCode"></MultiInput>
+								</smartFilterBar:customControl>
+							</smartFilterBar:ControlConfiguration>
+						</smartFilterBar:controlConfiguration>
+					</smartFilterBar:SmartFilterBar>
+					<!--<ScrollContainer height="100%" width="100%" horizontal="true" vertical="true" focusable="true">-->
+					<sap.ui.comp.smarttable:SmartTable xmlns:sap.ui.comp.smarttable="sap.ui.comp.smarttable" entitySet="inputControl" smartFilterId="smartFilterBar" height="100%" width="100%" direction="Column" fitContainer="true" tableType="ResponsiveTable" header="Smart Table" enableAutoBinding="false" id="__table0" showVariantManagement="true" beforeRebindTable="onBeforeRebindTable" useVariantManagement="true" useOnlyOneSolidToolbar="true">
+					
+						<Table mode="SingleSelectMaster" selectionChange="selrow" growing="true" fixedLayout="false">
+							<columns>
+								<Column hAlign="Begin">
+									<customData>
+										<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;STATUS&quot;, &quot;maxLength&quot;: &quot;1&quot;,&quot;columnIndex&quot;:&quot;0&quot;, &quot;leadingProperty&quot;: &quot;STATUS&quot;}"/>
+									</customData>
+									<Text text="{@i18n>overAllStatus}"/>
+								</Column>
+								<Column hAlign="Begin">
+										<customData>
+									<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;correctedBatch&quot;, &quot;maxLength&quot;: &quot;4&quot;,&quot;columnIndex&quot;:&quot;5&quot;, &quot;leadingProperty&quot;: &quot;&quot;}"/>
+										</customData>
+									<Text text="{@i18n>correctedBatch}"/>
+								</Column>
+								
+									<Column hAlign="Begin">
+									<customData>
+									<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;sourceProcessDate&quot;, &quot;maxLength&quot;: &quot;12&quot;,&quot;columnIndex&quot;:&quot;6&quot;, &quot;leadingProperty&quot;: &quot;&quot;}"/>
+								</customData>
+									<Text text="{@i18n>sourceProcessDate}"/>
+								</Column>
+								
+									<Column hAlign="Begin">
+											<customData>
+									<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;ifpReceivedDate&quot;, &quot;maxLength&quot;: &quot;12&quot;,&quot;columnIndex&quot;:&quot;7&quot;, &quot;leadingProperty&quot;: &quot;&quot;}"/>
+								</customData>
+									<Text text="{@i18n>ifpReceivedDate}"/>
+								</Column>
+								
+									<Column hAlign="Begin">
+											<customData>
+									<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;ifpProcessDate&quot;, &quot;maxLength&quot;: &quot;12&quot;,&quot;columnIndex&quot;:&quot;8&quot;, &quot;leadingProperty&quot;: &quot;&quot;}"/>
+									</customData>
+									<Text text="{@i18n>ifpProcessDate}"/>
+								</Column>
+								
+									<Column hAlign="Begin">
+											<customData>
+									<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;ifpProcessTime&quot;, &quot;maxLength&quot;: &quot;12&quot;,&quot;columnIndex&quot;:&quot;9&quot;, &quot;leadingProperty&quot;: &quot;&quot;}"/>
+									</customData>
+									<Text text="{@i18n>ifpProcessTime}"/>
+								</Column>
+								
+									<Column hAlign="Begin">
+												<customData>
+									<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;recordCount&quot;, &quot;maxLength&quot;: &quot;12&quot;,&quot;columnIndex&quot;:&quot;10&quot;, &quot;leadingProperty&quot;: &quot;&quot;}"/>
+										</customData>
+									<Text text="{@i18n>recordCount}"/>
+								</Column>
+								
+									<Column hAlign="Begin">
+												<customData>
+									<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;totalAmount&quot;, &quot;maxLength&quot;: &quot;12&quot;,&quot;columnIndex&quot;:&quot;11&quot;, &quot;leadingProperty&quot;: &quot;&quot;}"/>
+										</customData>
+									<Text text="{@i18n>totalAmount}"/>
+								</Column>
+	
+								<Column hAlign="Begin">
+									<customData>
+										<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;ASD&quot;, &quot;maxLength&quot;: &quot;12&quot;,&quot;columnIndex&quot;:&quot;12&quot;, &quot;leadingProperty&quot;: &quot;&quot;}"/>
+									</customData>
+									<Text text="{@i18n>dataServiceDate}"/>
+								</Column>
+								<Column hAlign="Begin">
+									<customData>
+										<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;QWE&quot;, &quot;maxLength&quot;: &quot;12&quot;,&quot;columnIndex&quot;:&quot;13&quot;, &quot;leadingProperty&quot;: &quot;&quot;}"/>
+									</customData>
+									<Text text="{@i18n>dataServiceTime}"/>
+								</Column>
+								<Column hAlign="Begin">
+									<customData>
+										<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;QE&quot;, &quot;maxLength&quot;: &quot;12&quot;,&quot;columnIndex&quot;:&quot;14&quot;, &quot;leadingProperty&quot;: &quot;&quot;}"/>
+									</customData>
+									<Text text="{@i18n>dataServiceStatus}"/>
+								</Column>
+								<Column hAlign="Begin">
+									<customData>
+										<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;ASDr&quot;, &quot;maxLength&quot;: &quot;12&quot;,&quot;columnIndex&quot;:&quot;15&quot;, &quot;leadingProperty&quot;: &quot;&quot;}"/>
+									</customData>
+									<Text text="{@i18n>bwServiceDate}"/>
+								</Column>
+								<Column hAlign="Begin">
+									<customData>
+										<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;QWEr&quot;, &quot;maxLength&quot;: &quot;12&quot;,&quot;columnIndex&quot;:&quot;16&quot;, &quot;leadingProperty&quot;: &quot;&quot;}"/>
+									</customData>
+									<Text text="{@i18n>bwServiceTime}"/>
+								</Column>
+								<Column hAlign="Begin">
+									<customData>
+										<core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;QEr&quot;, &quot;maxLength&quot;: &quot;12&quot;,&quot;columnIndex&quot;:&quot;17&quot;, &quot;leadingProperty&quot;: &quot;&quot;}"/>
+									</customData>
+									<Text text="{@i18n>bwServiceStatus}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<core:Icon src="{path:'STATUS', formatter: 'util.Formatter.setStatusIcon'}" color="{ path: 'STATUS',formatter: 'util.Formatter.setStatusIconColor'}"/>
+										<Text text="{path:'STATUS',formatter:'util.Formatter.isCorrectedBatch'}"/>
+												<Text text="{path:'ACCT_DATE',type: 'sap.ui.model.type.Date',formatOptions:{style:'short'}}"/>
+													<Text text="{path:'ACCT_DATE',type: 'sap.ui.model.type.Date',formatOptions:{style:'short'}}"/>
+														<Text text="{path:'ACCT_DATE',type: 'sap.ui.model.type.Date',formatOptions:{style:'short'}}"/>
+										<Text text="{path:'ACCT_DATE',type: 'sap.ui.model.type.Time',formatOptions:{style:'short'}}"/>
+										<Text text="200"/>
+											<Text text="43560"/>
+																	<Text text="{path:'ACCT_DATE',type: 'sap.ui.model.type.Date',formatOptions:{style:'short'}}"/>
+																		<Text text="{path:'ACCT_DATE',type: 'sap.ui.model.type.Time',formatOptions:{style:'short'}}"/>
+										<core:Icon src="{path:'STATUS', formatter:'util.Formatter.setStatusIcon'}" color="{ path: 'STATUS',formatter:'util.Formatter.setStatusIconColor'}"/>
+										<Text text="{path:'ACCT_DATE',type: 'sap.ui.model.type.Date',formatOptions:{style:'short'}}"/>
+										<Text text="{path:'ACCT_DATE',type: 'sap.ui.model.type.Time',formatOptions:{style:'short'}}"/>
+										<core:Icon src="{path:'STATUS', formatter:'util.Formatter.setStatusIcon'}" color="{ path: 'STATUS',formatter:'util.Formatter.setStatusIconColor'}"/>
+									</cells>
+								</ColumnListItem>
+								<ColumnListItem>
+									<cells>
+										<Text text="{path:'ACCT_DATE',type: 'sap.ui.model.type.DateTime',formatOptions:{style:'short'}}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</sap.ui.comp.smarttable:SmartTable>
+					<!--</ScrollContainer>-->
+				</content>
+			</Page>
+		
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,8 @@
+[{
+ DATA_SOURCE: "ENCOMPASS",
+ DESCR: "This is PRD system"
+},
+{
+ DATA_SOURCE: "SQUARE TRADE",
+ DESCR: "This is Dev system"
+}]

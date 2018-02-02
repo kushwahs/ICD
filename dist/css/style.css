@@ -1,0 +1,20 @@
+/*.sapMLIBShowSeparator>td {*/
+/*  border-top: 1px solid #ff0000;*/
+/*  border-right: 1px solid #ff0000;*/
+/*}*/
+/*.sapMLIBShowSeparator>td:first-child {*/
+/*  border-left: 1px solid #ff0000;*/
+/*}*/
+
+/*.sapMListTblHeader>td*/
+/*{*/
+/*	 border-right: 1px solid #ff0000;*/
+/*}*/
+div#__layout12
+{
+	width : 70rem;
+}
+div#__xmlview1--smartFilterBar-filterItemControlinputControlType-ACCT_DATE
+{
+	width: 20%;
+}
